@@ -1,7 +1,6 @@
-module Datatypes.Helpers exposing (..)
+module Utils.Helpers exposing (..)
 
 import Array exposing (Array)
-import Dict exposing (Dict)
 import Random exposing (Seed)
 
 

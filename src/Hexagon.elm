@@ -1,12 +1,12 @@
-module Datatypes.Hexagon exposing (Hexagon, toSVG)
+{- Implementation based on code snippets from https://www.redblobgames.com/grids/hexagons/ -}
 
-import Array exposing (Array)
-import Bitwise
-import Datatypes.Board exposing (Cell)
-import Datatypes.Model exposing (Msg(..))
+
+module Hexagon exposing (Hexagon, toSVG)
+
+import Board exposing (Cell)
 import Html exposing (Html)
-import Html.Attributes exposing (src)
 import List
+import Model exposing (Msg(..))
 import Svg exposing (image, polygon, svg, text_)
 import Svg.Attributes exposing (cursor, dominantBaseline, fill, fontFamily, fontSize, fontVariant, height, opacity, points, stroke, textAnchor, viewBox, width, x, xlinkHref, y)
 import Svg.Events exposing (onClick)
@@ -18,18 +18,6 @@ type alias Hexagon =
     , width : Float
     , height : Float
     }
-
-
-
-{--Calculation taken from https://stackoverflow.com/a/20117209
-hexClicked : Hexagon -> Point -> Bool
-hexClicked hex p =
-    let
-        projectedX center = abs ((p.x - center.x) / 70)
-        projectedY center = abs ((p.y - center.y) / 70)
-
-    in
-        (projectedX hex.center * projectedX hex.center + projectedY hex.center * projectedY hex.center) < 0.75--}
 
 
 calculateCorners : Hexagon -> List ( Float, Float )

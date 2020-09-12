@@ -1,4 +1,4 @@
-module Datatypes.Player exposing (Player, getPlayer, randomPlayer, toString, togglePlayer)
+module Player exposing (Player, getPlayer, randomPlayer, toString, togglePlayer)
 
 import Array exposing (Array)
 import Random

@@ -1,10 +1,10 @@
-module Datatypes.Board exposing (Board, Cell, createRandomBoard, getNumberOfArmies, getNumberOfCountries, getReinforcements, occupy, reinforceArmy, removeArmy, validateDefender)
+module Board exposing (Board, Cell, createRandomBoard, getNumberOfArmies, getNumberOfCountries, getReinforcements, occupy, reinforceArmy, removeArmy, validateDefender)
 
 import Array exposing (Array)
-import Datatypes.CubeCoordinates exposing (CubeCoordinates, axialToCube, cubeToIndex)
-import Datatypes.Helpers as Helpers
-import Datatypes.Player as Player exposing (Player)
+import Player exposing (Player)
 import Random
+import Utils.CubeCoordinates exposing (CubeCoordinates, axialToCube, cubeToIndex)
+import Utils.Helpers as Helpers
 
 
 type alias Board =

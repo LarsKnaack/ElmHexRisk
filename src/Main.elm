@@ -1,16 +1,15 @@
 module Main exposing (..)
 
 import Array
+import Board exposing (Board, Cell)
 import Browser
-import Datatypes.Board as Board exposing (Board, Cell)
-import Datatypes.Hexagon as Hexagon exposing (..)
-import Datatypes.Model exposing (Model(..), Msg(..))
-import Datatypes.Player as Player exposing (Player)
-import Dict
 import Game exposing (Game, Phase(..))
+import Hexagon as Hexagon exposing (..)
 import Html exposing (Html, button, div, header, img, text)
 import Html.Attributes exposing (href, src, style)
 import Html.Events exposing (onClick)
+import Model exposing (Model(..), Msg(..))
+import Player as Player exposing (Player)
 import Random exposing (Generator)
 import Svg exposing (svg)
 import Svg.Attributes exposing (height, width)
@@ -30,7 +29,7 @@ main =
 
 initialModel : ( Model, Cmd Msg )
 initialModel =
-    (Tutorial, Cmd.none)
+    ( Tutorial, Cmd.none )
 
 
 intGenerator : Int -> Int -> Generator Int
@@ -43,10 +42,13 @@ update msg model =
     case msg of
         GeneratedRandomSeed seed ->
             ( Playing (Game.initialize seed), Cmd.none )
+
         Play ->
-            (GenerateSeed, Random.generate GeneratedRandomSeed (intGenerator Random.minInt Random.maxInt))
+            ( GenerateSeed, Random.generate GeneratedRandomSeed (intGenerator Random.minInt Random.maxInt) )
+
         Restart ->
-            (Tutorial, Cmd.none)
+            ( Tutorial, Cmd.none )
+
         _ ->
             case model of
                 Playing game ->
@@ -58,7 +60,6 @@ update msg model =
                             Player.togglePlayer currentPlayer
                     in
                     case msg of
-
                         GeneratedRandomSeed _ ->
                             ( model, Cmd.none )
 
@@ -97,12 +98,18 @@ update msg model =
 
                         EndAttack ->
                             ( Playing { game | state = ( currentPlayer, TakeTroops ) }, Cmd.none )
+
                         CancelMovement ->
                             ( Playing { game | state = ( currentPlayer, TakeTroops ) }, Cmd.none )
+
                         EndTurn ->
                             ( Playing { game | state = ( nextPlayer, Reinforce (Board.getReinforcements nextPlayer game.board) ) }, Cmd.none )
-                        _ -> (model, Cmd.none)
-                _ -> (model, Cmd.none)
+
+                        _ ->
+                            ( model, Cmd.none )
+
+                _ ->
+                    ( model, Cmd.none )
 
 
 view : Model -> Html Msg
@@ -122,10 +129,12 @@ view model =
                 , style "color" "white"
                 ]
                 [ div [ style "flex" "1 1 auto", style "display" "flex", style "flexDirection" "row" ]
-                                      [ Html.nav (sideBar (Player.getPlayer -1)) [ div [] [], div [] [div [] [] ], div [] [] ]
-                                      , Html.main_ [ style "flex" "1 1 auto", style "overflow" "auto" ] [tutorialView]
-                                      , Html.aside (sideBar (Player.getPlayer -1)) []
-                                      ]]
+                    [ Html.nav (sideBar (Player.getPlayer -1)) [ div [] [], div [] [ div [] [] ], div [] [] ]
+                    , Html.main_ [ style "flex" "1 1 auto", style "overflow" "auto" ] [ tutorialView ]
+                    , Html.aside (sideBar (Player.getPlayer -1)) []
+                    ]
+                ]
+
         GenerateSeed ->
             div
                 [ style "width" "100vw"
@@ -149,7 +158,7 @@ view model =
             div [ style "display" "flex", style "flexDirection" "column", style "height" "100vh", style "fontFamily" "Calibri" ]
                 [ Html.header [ style "flex" "0 0 50px", style "textAlign" "center", style "lineHeight" "50px", style "fontSize" "50px" ] [ text "ELM HEXRISK" ]
                 , div [ style "flex" "1 1 auto", style "display" "flex", style "flexDirection" "row" ]
-                    [ Html.nav (sideBar currentPlayer) [ div [] [], div [] [div [] [ text (Game.phaseToString phase) ] ], div [] [] ]
+                    [ Html.nav (sideBar currentPlayer) [ div [] [], div [] [ div [] [ text (Game.phaseToString phase) ] ], div [] [] ]
                     , Html.main_ [ style "flex" "1 1 auto", style "overflow" "auto" ] [ boardView game ]
                     , Html.aside (sideBar currentPlayer) [ stateView phase ]
                     ]
@@ -169,29 +178,30 @@ sideBar player =
     , style "justifyContent" "center"
     ]
 
+
 tutorialView : Html Msg
 tutorialView =
     div [ style "display" "flex", style "flexDirection" "column", style "margin" "0px 100px", style "fontFamily" "Calibri" ]
-    [ div [style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0"][text "Willkommen zum Spiel HEXRISK."]
-    , div [style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0"][text "ALLGEMEIN"]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Hier wird dir erklärt, wie du das Spiel bedienst. Eine ausführliche Anleitung der Risiko-Regeln findest du ", Html.a[style "color" "white",href "./assets/Risiko_de_Luxe-Spielanleitung.pdf"][text "hier"]]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Bitte beachte, dass es in dieser Version keine Gebietskarten gibt und die neutralen Armeen passiv sind."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "In der Mitte des Fensters befindet sich das Spielbrett. Dort kannst du einzelne Hexagone anklicken. Um zu sehen welche Hexagone du anklicken kannst, achte auf deinen Mauscursor."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Links und rechts neben dem Spielfeld befinden sich farblich eingefärbte Flächen. Die Farbe dieser Flächen gibt die Farbe des aktuellen Spielers an."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Die linke Fläche zeigt dir, in welcher Spielphase du dich befindest. Es gibt 3 Phasen:"]
-    , div [style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0"][text "VERSTÄRKUNG"]
-    , div [style "marginLeft" "20px"][text "In dieser Phase kannst du deine Armeen per Klick auf ein Hexagon verstärken. Die Anzahl der verfügbaren Armeen siehst du auf der rechten Seite."]
-    , div [style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0"][text "ANGRIFF"]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "In dieser Phase kannst du einen Angriff ausführen. Wähle dazu per Klick ein Hexagon aus, von welchem du angreifen willst und anschließend ein benachbartes Hexagon welches du angreifen willst."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Du kannst das angreifende Land ändern, indem du auf den 'Zurück'-Pfeil in der Fläche rechts klickst."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Wenn beide Länder ausgewählt sind, kannst du die Anzahl der Armeen auswählen mit denen du angreifen willst. Anschließend wählt der Gegenspieler die Anzahl der verteidigenden Armeen."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Greifst du ein neutrales Land an, wird automatisch die maximale Anzahl an veteidigenden Armeen ausgewählt."]
-    , div [style "marginLeft" "20px"][text "Du kannst deine Angriffsphase beenden, indem du auf den 'Beenden'-Button rechts klickst"]
-    , div [style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0"][text "VERSCHIEBEN"]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "In dieser Phase kannst du deine Armeen zwischen miteinander verbundenen Hexagonen verschieben. Wähle dazu zuerst per Klick den Ursprung und anschließend das Ziel. Du kannst so viele Armeen verschieben, wie du möchtest."]
-    , div [style "marginLeft" "20px", style "marginBottom" "10px"][text "Um deinen Zug zu beenden klickst du auf den 'Zug Beenden'-Button rechts."]
-    , div [style "display" "flex", style "justifyContent" "center"][button [onClick Play][text "Spiel starten"]]
-    ]
+        [ div [ style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0" ] [ text "Willkommen zum Spiel HEXRISK." ]
+        , div [ style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0" ] [ text "ALLGEMEIN" ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Hier wird dir erklärt, wie du das Spiel bedienst. Eine ausführliche Anleitung der Risiko-Regeln findest du ", Html.a [ style "color" "white", href "./assets/Risiko_de_Luxe-Spielanleitung.pdf" ] [ text "hier" ] ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Bitte beachte, dass es in dieser Version keine Gebietskarten gibt und die neutralen Armeen passiv sind." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "In der Mitte des Fensters befindet sich das Spielbrett. Dort kannst du einzelne Hexagone anklicken. Um zu sehen welche Hexagone du anklicken kannst, achte auf deinen Mauscursor." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Links und rechts neben dem Spielfeld befinden sich farblich eingefärbte Flächen. Die Farbe dieser Flächen gibt die Farbe des aktuellen Spielers an." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Die linke Fläche zeigt dir, in welcher Spielphase du dich befindest. Es gibt 3 Phasen:" ]
+        , div [ style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0" ] [ text "VERSTÄRKUNG" ]
+        , div [ style "marginLeft" "20px" ] [ text "In dieser Phase kannst du deine Armeen per Klick auf ein Hexagon verstärken. Die Anzahl der verfügbaren Armeen siehst du auf der rechten Seite." ]
+        , div [ style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0" ] [ text "ANGRIFF" ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "In dieser Phase kannst du einen Angriff ausführen. Wähle dazu per Klick ein Hexagon aus, von welchem du angreifen willst und anschließend ein benachbartes Hexagon welches du angreifen willst." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Du kannst das angreifende Land ändern, indem du auf den 'Zurück'-Pfeil in der Fläche rechts klickst." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Wenn beide Länder ausgewählt sind, kannst du die Anzahl der Armeen auswählen mit denen du angreifen willst. Anschließend wählt der Gegenspieler die Anzahl der verteidigenden Armeen." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Greifst du ein neutrales Land an, wird automatisch die maximale Anzahl an veteidigenden Armeen ausgewählt." ]
+        , div [ style "marginLeft" "20px" ] [ text "Du kannst deine Angriffsphase beenden, indem du auf den 'Beenden'-Button rechts klickst" ]
+        , div [ style "fontSize" "13pt", style "fontWeight" "bold", style "margin" "15px 0" ] [ text "VERSCHIEBEN" ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "In dieser Phase kannst du deine Armeen zwischen miteinander verbundenen Hexagonen verschieben. Wähle dazu zuerst per Klick den Ursprung und anschließend das Ziel. Du kannst so viele Armeen verschieben, wie du möchtest." ]
+        , div [ style "marginLeft" "20px", style "marginBottom" "10px" ] [ text "Um deinen Zug zu beenden klickst du auf den 'Zug Beenden'-Button rechts." ]
+        , div [ style "display" "flex", style "justifyContent" "center" ] [ button [ onClick Play ] [ text "Spiel starten" ] ]
+        ]
 
 
 boardView : Game -> Html Msg
@@ -217,14 +227,17 @@ boardView game =
             case phase of
                 SelectingDefender attacker ->
                     cell.occupant /= attacker.occupant
+
                 SelectingAttacker ->
                     cell.occupant == currentPlayer && cell.armyStrength > 1
-                GameOver _ -> False
+
+                GameOver _ ->
+                    False
+
                 _ ->
                     cell.occupant == currentPlayer
     in
     {--}
-
     div [ style "display" "flex", style "justifyContent" "center" ]
         [ svg [ height (String.fromFloat boardHeight), width (String.fromFloat boardWidth) ]
             (Array.foldl (\cell acc -> Hexagon.toSVG Click isClickable cell :: acc) [] board.cells)
@@ -257,24 +270,26 @@ stateView phase =
 
             Defend attacker defender strength ->
                 div [ style "display" "flex" ] [ countryFlag attacker.country, img [ src "./assets/attack.png", width "50px" ] [], countryFlag defender.country ] :: List.map (\i -> imageButton (RollAttack strength i) ("./assets/infantry_" ++ String.fromInt i ++ ".png")) (List.range 1 (min 2 defender.armyStrength))
+
             TakeTroops ->
                 [ text "ZUG BEENDEN", imageButton EndTurn "./assets/EndTurn.png" ]
+
             MoveTroops start ->
                 [ countryFlag start.country, imageButton CancelMovement "./assets/cancel.png" ]
+
             GameOver winningPlayer ->
                 [ text ("SPIELER " ++ String.fromInt winningPlayer.id ++ " hat gewonnen")
-                , button[ onClick Restart
-                                , style "width" "162px"
-                                , style "height" "100px"
-                                , style "backgroundColor" "white"
-                                , style "cursor" "pointer"
-                                , style "clipPath" "polygon(30px 5px, 5px 30px, 5px 70px, 30px 95px, 132px 95px, 157px 70px, 157px 30px, 132px 5px)"
-                                ][text "Neu Starten"]]
+                , button
+                    [ onClick Restart
+                    , style "width" "162px"
+                    , style "height" "100px"
+                    , style "backgroundColor" "white"
+                    , style "cursor" "pointer"
+                    , style "clipPath" "polygon(30px 5px, 5px 30px, 5px 70px, 30px 95px, 132px 95px, 157px 70px, 157px 30px, 132px 5px)"
+                    ]
+                    [ text "Neu Starten" ]
+                ]
         )
-
-gameEndView : Player -> Html Msg
-gameEndView winningPlayer =
-    div[][]
 
 
 imageButton : Msg -> String -> Html Msg

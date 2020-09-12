@@ -1,8 +1,8 @@
 module Game exposing (..)
 
-import Datatypes.Board as Board exposing (Board, Cell)
-import Datatypes.Player as Player exposing (Player)
-import Datatypes.SearchAlgorithm as SearchAlgorithm
+import Board as Board exposing (Board, Cell)
+import Player exposing (Player)
+import Utils.Search as SearchAlgorithm
 
 
 type alias Game =
@@ -65,7 +65,7 @@ registerClick cell game =
         ( currentPlayer, phase ) =
             game.state
     in
-    case Debug.log "ClickPhase" phase of
+    case phase of
         Preparation armiesPlaced ->
             if Board.getNumberOfArmies currentPlayer game.board == 14 && Board.getNumberOfArmies (Player.togglePlayer currentPlayer) game.board == 15 then
                 { game | board = game.board |> Board.reinforceArmy cell }
@@ -136,18 +136,22 @@ registerRolls attackers defenders game =
 
         player =
             Player.togglePlayer currentPlayer
-        checkForLiberation attacker defender=
-            if defender.armyStrength == 0 then
-                                            {- Set Land occupied -}
-                                            { game | state = ( player, SelectingAttacker ), board = game.board |> Board.occupy defender player |> Board.removeArmy attacker }
 
-                                        else
-                                            { game | state = ( player, SelectingAttacker ) }
+        checkForLiberation attacker defender =
+            if defender.armyStrength == 0 then
+                {- Set Land occupied -}
+                { game | state = ( player, SelectingAttacker ), board = game.board |> Board.occupy defender player |> Board.removeArmy attacker }
+
+            else
+                { game | state = ( player, SelectingAttacker ) }
+
         checkForGameOver updatedGame =
-            if(Board.getNumberOfCountries currentPlayer updatedGame.board) == 0 then
-                {updatedGame | state = (player, GameOver player)}
+            if Board.getNumberOfCountries currentPlayer updatedGame.board == 0 then
+                { updatedGame | state = ( player, GameOver player ) }
+
             else if Board.getNumberOfCountries player updatedGame.board == 0 then
-                {updatedGame | state = (currentPlayer, GameOver currentPlayer)}
+                { updatedGame | state = ( currentPlayer, GameOver currentPlayer ) }
+
             else
                 updatedGame
     in
@@ -164,10 +168,10 @@ registerRolls attackers defenders game =
                                 { game | state = ( currentPlayer, Defend { attacker | armyStrength = attacker.armyStrength - 1 } defender unused ), board = game.board |> Board.removeArmy attacker } |> registerRolls restAttackers restDefenders
 
                         [] ->
-                            (checkForLiberation attacker defender) |> checkForGameOver
+                            checkForLiberation attacker defender |> checkForGameOver
 
                 [] ->
-                    (checkForLiberation attacker defender) |> checkForGameOver
+                    checkForLiberation attacker defender |> checkForGameOver
 
         _ ->
             game

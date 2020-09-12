@@ -1,6 +1,6 @@
-module Datatypes.Model exposing (..)
+module Model exposing (..)
 
-import Datatypes.Board exposing (Cell)
+import Board exposing (Cell)
 import Game exposing (Game)
 
 

@@ -1,4 +1,7 @@
-module Datatypes.CubeCoordinates exposing (..)
+{- Implementation based on code snippets from https://www.redblobgames.com/grids/hexagons/ -}
+
+
+module Utils.CubeCoordinates exposing (..)
 
 
 type alias CubeCoordinates =
