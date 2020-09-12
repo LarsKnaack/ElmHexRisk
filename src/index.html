@@ -5241,27 +5241,27 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Datatypes$Model$Tutorial = {$: 'Tutorial'};
+var $author$project$Model$Tutorial = {$: 'Tutorial'};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Main$initialModel = _Utils_Tuple2($author$project$Datatypes$Model$Tutorial, $elm$core$Platform$Cmd$none);
+var $author$project$Main$initialModel = _Utils_Tuple2($author$project$Model$Tutorial, $elm$core$Platform$Cmd$none);
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Game$Defend = F3(
 	function (a, b, c) {
 		return {$: 'Defend', a: a, b: b, c: c};
 	});
-var $author$project$Datatypes$Model$GenerateSeed = {$: 'GenerateSeed'};
-var $author$project$Datatypes$Model$GeneratedRandomSeed = function (a) {
+var $author$project$Model$GenerateSeed = {$: 'GenerateSeed'};
+var $author$project$Model$GeneratedRandomSeed = function (a) {
 	return {$: 'GeneratedRandomSeed', a: a};
 };
-var $author$project$Datatypes$Model$Playing = function (a) {
+var $author$project$Model$Playing = function (a) {
 	return {$: 'Playing', a: a};
 };
 var $author$project$Game$Reinforce = function (a) {
 	return {$: 'Reinforce', a: a};
 };
-var $author$project$Datatypes$Model$RolledDice = function (a) {
+var $author$project$Model$RolledDice = function (a) {
 	return {$: 'RolledDice', a: a};
 };
 var $author$project$Game$SelectingAttacker = {$: 'SelectingAttacker'};
@@ -5395,7 +5395,7 @@ var $elm$core$Array$foldl = F3(
 			A3($elm$core$Elm$JsArray$foldl, helper, baseCase, tree),
 			tail);
 	});
-var $author$project$Datatypes$Board$getReinforcements = F2(
+var $author$project$Board$getReinforcements = F2(
 	function (player, board) {
 		return A2(
 			$elm$core$Basics$max,
@@ -5416,15 +5416,15 @@ var $author$project$Game$Game = F2(
 var $author$project$Game$Preparation = function (a) {
 	return {$: 'Preparation', a: a};
 };
-var $author$project$Datatypes$Board$Board = F3(
+var $author$project$Board$Board = F3(
 	function (height, width, cells) {
 		return {cells: cells, height: height, width: width};
 	});
-var $author$project$Datatypes$Board$Cell = F4(
+var $author$project$Board$Cell = F4(
 	function (position, occupant, armyStrength, country) {
 		return {armyStrength: armyStrength, country: country, occupant: occupant, position: position};
 	});
-var $author$project$Datatypes$CubeCoordinates$CubeCoordinates = F3(
+var $author$project$Utils$CubeCoordinates$CubeCoordinates = F3(
 	function (x, y, z) {
 		return {x: x, y: y, z: z};
 	});
@@ -5432,11 +5432,11 @@ var $elm$core$Basics$modBy = _Basics_modBy;
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
-var $author$project$Datatypes$CubeCoordinates$axialToCube = function (_v0) {
+var $author$project$Utils$CubeCoordinates$axialToCube = function (_v0) {
 	var row = _v0.a;
 	var col = _v0.b;
 	return A3(
-		$author$project$Datatypes$CubeCoordinates$CubeCoordinates,
+		$author$project$Utils$CubeCoordinates$CubeCoordinates,
 		col - (((row - A2($elm$core$Basics$modBy, 2, row)) / 2) | 0),
 		(-(col - (((row - A2($elm$core$Basics$modBy, 2, row)) / 2) | 0))) - row,
 		row);
@@ -5457,9 +5457,9 @@ var $elm$core$List$concatMap = F2(
 		return $elm$core$List$concat(
 			A2($elm$core$List$map, f, list));
 	});
-var $author$project$Datatypes$Board$countryFlags = _List_fromArray(
+var $author$project$Board$countryFlags = _List_fromArray(
 	['abkhazia.png', 'afghanistan.png', 'aland-islands.png', 'albania.png', 'algeria.png', 'american-samoa.png', 'andorra.png', 'angola.png', 'anguilla.png', 'antigua-and-barbuda.png', 'argentina.png', 'armenia.png', 'aruba.png', 'australia.png', 'austria.png', 'azerbaijan.png', 'azores-islands.png', 'bahamas.png', 'bahrain.png', 'balearic-islands.png', 'bangladesh.png', 'barbados.png', 'basque-country.png', 'belarus.png', 'belgium.png', 'belize.png', 'benin.png', 'bermuda.png', 'bhutan.png', 'bhutan-1.png', 'bolivia.png', 'bonaire.png', 'bosnia-and-herzegovina.png', 'botswana.png', 'brazil.png', 'british-columbia.png', 'british-indian-ocean-territory.png', 'british-virgin-islands.png', 'brunei.png', 'bulgaria.png', 'burkina-faso.png', 'burundi.png', 'cambodia.png', 'cameroon.png', 'canada.png', 'canary-islands.png', 'cape-verde.png', 'cayman-islands.png', 'central-african-republic.png', 'ceuta.png', 'chad.png', 'chile.png', 'china.png', 'christmas-island.png', 'cocos-island.png', 'colombia.png', 'comoros.png', 'cook-islands.png', 'corsica.png', 'costa-rica.png', 'croatia.png', 'cuba.png', 'curacao.png', 'cyprus.png', 'czech-republic.png', 'democratic-republic-of-congo.png', 'denmark.png', 'djibouti.png', 'dominica.png', 'dominican-republic.png', 'east-timor.png', 'ecuador.png', 'egypt.png', 'england.png', 'equatorial-guinea.png', 'eritrea.png', 'estonia.png', 'ethiopia.png', 'european-union.png', 'falkland-islands.png', 'faroe-islands.png', 'fiji.png', 'finland.png', 'france.png', 'french-polynesia.png', 'gabon.png', 'galapagos-islands.png', 'gambia.png', 'georgia.png', 'germany.png', 'ghana.png', 'gibraltar.png', 'greece.png', 'greenland.png', 'grenada.png', 'guam.png', 'guatemala.png', 'guernsey.png', 'guinea.png', 'guinea-bissau.png', 'guyana.png', 'haiti.png', 'hawaii.png', 'honduras.png', 'hong-kong.png', 'hungary.png', 'iceland.png', 'india.png', 'indonesia.png', 'iran.png', 'iraq.png', 'ireland.png', 'isle-of-man.png', 'israel.png', 'italy.png', 'ivory-coast.png', 'jamaica.png', 'japan.png', 'jersey.png', 'jordan.png', 'kazakhstan.png', 'kenya.png', 'kiribati.png', 'kosovo.png', 'kuwait.png', 'kyrgyzstan.png', 'laos.png', 'latvia.png', 'lebanon.png', 'lesotho.png', 'liberia.png', 'libya.png', 'liechtenstein.png', 'lithuania.png', 'luxembourg.png', 'macao.png', 'madagascar.png', 'madeira.png', 'malawi.png', 'malaysia.png', 'maldives.png', 'mali.png', 'malta.png', 'marshall-island.png', 'martinique.png', 'mauritania.png', 'mauritius.png', 'melilla.png', 'mexico.png', 'micronesia.png', 'moldova.png', 'monaco.png', 'mongolia.png', 'montenegro.png', 'montserrat.png', 'morocco.png', 'mozambique.png', 'myanmar.png', 'namibia.png', 'nato.png', 'nauru.png', 'nepal.png', 'netherlands.png', 'new-zealand.png', 'nicaragua.png', 'niger.png', 'nigeria.png', 'niue.png', 'norfolk-island.png', 'northen-cyprus.png', 'northern-marianas-islands.png', 'north-korea.png', 'norway.png', 'oman.png', 'orkney-islands.png', 'ossetia.png', 'pakistan.png', 'palau.png', 'palestine.png', 'panama.png', 'papua-new-guinea.png', 'paraguay.png', 'peru.png', 'philippines.png', 'pitcairn-islands.png', 'portugal.png', 'puerto-rico.png', 'qatar.png', 'rapa-nui.png', 'republic-of-macedonia.png', 'republic-of-poland.png', 'republic-of-the-congo.png', 'romania.png', 'russia.png', 'rwanda.png', 'saba-island.png', 'saint-kitts-and-nevis.png', 'salvador.png', 'samoa.png', 'san-marino.png', 'sao-tome-and-principe.png', 'sardinia.png', 'saudi-arabia.png', 'scotland.png', 'senegal.png', 'serbia.png', 'seychelles.png', 'sierra-leone.png', 'singapore.png', 'sint-eustatius.png', 'sint-maarten.png', 'slovakia.png', 'slovenia.png', 'solomon-islands.png', 'somalia.png', 'somaliland.png', 'south-africa.png', 'south-korea.png', 'south-sudan.png', 'spain.png', 'sri-lanka.png', 'st-barts.png', 'st-lucia.png', 'st-vincent-and-the-grenadines.png', 'sudan.png', 'suriname.png', 'swaziland.png', 'sweden.png', 'switzerland.png', 'syria.png', 'taiwan.png', 'tajikistan.png', 'tanzania.png', 'thailand.png', 'tibet.png', 'togo.png', 'tokelau.png', 'tonga.png', 'transnistria.png', 'trinidad-and-tobago.png', 'tunisia.png', 'turkey.png', 'turkmenistan.png', 'turks-and-caicos.png', 'tuvalu.png', 'uganda.png', 'ukraine.png', 'united-arab-emirates.png', 'united-kingdom.png', 'united-nations.png', 'united-states-of-america.png', 'uruguay.png', 'uzbekistn.png', 'vanuatu.png', 'vatican-city.png', 'venezuela.png', 'vietnam.png', 'virgin-islands.png', 'wales.png', 'western-sahara.png', 'yemen.png', 'zambia.png', 'zimbabwe.png']);
-var $author$project$Datatypes$CubeCoordinates$cubeToIndex = function (coords) {
+var $author$project$Utils$CubeCoordinates$cubeToIndex = function (coords) {
 	var row = coords.z;
 	var col = coords.x + (((coords.z - A2($elm$core$Basics$modBy, 2, coords.z)) / 2) | 0);
 	return row + (col * 6);
@@ -5540,31 +5540,31 @@ var $elm$core$Array$get = F2(
 			A2($elm$core$Elm$JsArray$unsafeGet, $elm$core$Array$bitMask & index, tail)) : $elm$core$Maybe$Just(
 			A3($elm$core$Array$getHelp, startShift, index, tree)));
 	});
-var $author$project$Datatypes$Player$Player = F3(
+var $author$project$Player$Player = F3(
 	function (id, color, armiesAvailable) {
 		return {armiesAvailable: armiesAvailable, color: color, id: id};
 	});
-var $author$project$Datatypes$Player$initialPlayers = $elm$core$Array$fromList(
+var $author$project$Player$initialPlayers = $elm$core$Array$fromList(
 	_List_fromArray(
 		[
-			A3($author$project$Datatypes$Player$Player, 0, '#A9E5BB', 15 - 9),
-			A3($author$project$Datatypes$Player$Player, 1, '#F7B32B', 15 - 9),
-			A3($author$project$Datatypes$Player$Player, 2, '#FDF8C4', 0),
-			A3($author$project$Datatypes$Player$Player, 3, '#FDF8C4', 0),
-			A3($author$project$Datatypes$Player$Player, 4, '#FDF8C4', 0),
-			A3($author$project$Datatypes$Player$Player, 5, '#FDF8C4', 0)
+			A3($author$project$Player$Player, 0, '#A9E5BB', 15 - 9),
+			A3($author$project$Player$Player, 1, '#F7B32B', 15 - 9),
+			A3($author$project$Player$Player, 2, '#FDF8C4', 0),
+			A3($author$project$Player$Player, 3, '#FDF8C4', 0),
+			A3($author$project$Player$Player, 4, '#FDF8C4', 0),
+			A3($author$project$Player$Player, 5, '#FDF8C4', 0)
 		]));
-var $author$project$Datatypes$Player$withDefault = function (mp) {
+var $author$project$Player$withDefault = function (mp) {
 	if (mp.$ === 'Nothing') {
-		return A3($author$project$Datatypes$Player$Player, -1, 'white', -1);
+		return A3($author$project$Player$Player, -1, 'white', -1);
 	} else {
 		var p = mp.a;
 		return p;
 	}
 };
-var $author$project$Datatypes$Player$getPlayer = function (index) {
-	return $author$project$Datatypes$Player$withDefault(
-		A2($elm$core$Array$get, index, $author$project$Datatypes$Player$initialPlayers));
+var $author$project$Player$getPlayer = function (index) {
+	return $author$project$Player$withDefault(
+		A2($elm$core$Array$get, index, $author$project$Player$initialPlayers));
 };
 var $elm$core$List$repeatHelp = F3(
 	function (result, n, value) {
@@ -6015,7 +6015,7 @@ var $elm$core$Array$slice = F3(
 			correctFrom,
 			A2($elm$core$Array$sliceRight, correctTo, array));
 	});
-var $author$project$Datatypes$Helpers$shuffleHelper = F3(
+var $author$project$Utils$Helpers$shuffleHelper = F3(
 	function (seed, array, result) {
 		shuffleHelper:
 		while (true) {
@@ -6053,9 +6053,9 @@ var $author$project$Datatypes$Helpers$shuffleHelper = F3(
 			}
 		}
 	});
-var $author$project$Datatypes$Helpers$shuffleArray = F2(
+var $author$project$Utils$Helpers$shuffleArray = F2(
 	function (seed, array) {
-		return A3($author$project$Datatypes$Helpers$shuffleHelper, seed, array, $elm$core$Array$empty);
+		return A3($author$project$Utils$Helpers$shuffleHelper, seed, array, $elm$core$Array$empty);
 	});
 var $elm$core$Maybe$withDefault = F2(
 	function (_default, maybe) {
@@ -6066,12 +6066,12 @@ var $elm$core$Maybe$withDefault = F2(
 			return _default;
 		}
 	});
-var $author$project$Datatypes$Board$createRandomBoard = F3(
+var $author$project$Board$createRandomBoard = F3(
 	function (seed, columns, rows) {
 		var shuffledCountries = A2(
-			$author$project$Datatypes$Helpers$shuffleArray,
+			$author$project$Utils$Helpers$shuffleArray,
 			$elm$random$Random$initialSeed(seed),
-			$elm$core$Array$fromList($author$project$Datatypes$Board$countryFlags));
+			$elm$core$Array$fromList($author$project$Board$countryFlags));
 		var occupants = _Utils_ap(
 			A2($elm$core$List$repeat, 9, 0),
 			_Utils_ap(
@@ -6085,23 +6085,23 @@ var $author$project$Datatypes$Board$createRandomBoard = F3(
 							A2($elm$core$List$repeat, 6, 5))))));
 		var shuffled = $elm$core$Array$toList(
 			A2(
-				$author$project$Datatypes$Helpers$shuffleArray,
+				$author$project$Utils$Helpers$shuffleArray,
 				$elm$random$Random$initialSeed(seed),
 				$elm$core$Array$fromList(occupants)));
 		var mapOccupant = F2(
 			function (axialPos, occupant) {
 				return A4(
-					$author$project$Datatypes$Board$Cell,
-					$author$project$Datatypes$CubeCoordinates$axialToCube(axialPos),
-					$author$project$Datatypes$Player$getPlayer(occupant),
+					$author$project$Board$Cell,
+					$author$project$Utils$CubeCoordinates$axialToCube(axialPos),
+					$author$project$Player$getPlayer(occupant),
 					(occupant > 1) ? 4 : 1,
 					A2(
 						$elm$core$Maybe$withDefault,
 						'germany.png',
 						A2(
 							$elm$core$Array$get,
-							$author$project$Datatypes$CubeCoordinates$cubeToIndex(
-								$author$project$Datatypes$CubeCoordinates$axialToCube(axialPos)),
+							$author$project$Utils$CubeCoordinates$cubeToIndex(
+								$author$project$Utils$CubeCoordinates$axialToCube(axialPos)),
 							shuffledCountries)));
 			});
 		var indices = A2(
@@ -6116,28 +6116,28 @@ var $author$project$Datatypes$Board$createRandomBoard = F3(
 			},
 			A2($elm$core$List$range, 0, rows - 1));
 		return A3(
-			$author$project$Datatypes$Board$Board,
+			$author$project$Board$Board,
 			rows,
 			columns,
 			$elm$core$Array$fromList(
 				A3($elm$core$List$map2, mapOccupant, indices, shuffled)));
 	});
-var $author$project$Datatypes$Player$randomPlayer = function (seed) {
+var $author$project$Player$randomPlayer = function (seed) {
 	var _v0 = A2(
 		$elm$random$Random$step,
 		A2($elm$random$Random$int, 0, 1),
 		$elm$random$Random$initialSeed(seed));
 	var index = _v0.a;
-	return $author$project$Datatypes$Player$withDefault(
-		A2($elm$core$Array$get, index, $author$project$Datatypes$Player$initialPlayers));
+	return $author$project$Player$withDefault(
+		A2($elm$core$Array$get, index, $author$project$Player$initialPlayers));
 };
 var $author$project$Game$initialize = function (seed) {
 	return A2(
 		$author$project$Game$Game,
 		_Utils_Tuple2(
-			$author$project$Datatypes$Player$randomPlayer(seed),
+			$author$project$Player$randomPlayer(seed),
 			$author$project$Game$Preparation(0)),
-		A3($author$project$Datatypes$Board$createRandomBoard, seed, 6, 7));
+		A3($author$project$Board$createRandomBoard, seed, 6, 7));
 };
 var $author$project$Main$intGenerator = F2(
 	function (min, max) {
@@ -6217,7 +6217,7 @@ var $author$project$Game$MoveTroops = function (a) {
 var $author$project$Game$SelectingDefender = function (a) {
 	return {$: 'SelectingDefender', a: a};
 };
-var $author$project$Datatypes$Board$getNumberOfArmies = F2(
+var $author$project$Board$getNumberOfArmies = F2(
 	function (player, board) {
 		return A3(
 			$elm$core$Array$foldl,
@@ -6259,27 +6259,27 @@ var $elm$core$List$member = F2(
 			},
 			xs);
 	});
-var $author$project$Datatypes$SearchAlgorithm$neighbourDirections = _List_fromArray(
+var $author$project$Utils$Search$neighbourDirections = _List_fromArray(
 	[
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 1, -1, 0),
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 1, 0, -1),
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 0, 1, -1),
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, -1, 1, 0),
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, -1, 0, 1),
-		A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 0, -1, 1)
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 1, -1, 0),
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 1, 0, -1),
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 0, 1, -1),
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, -1, 1, 0),
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, -1, 0, 1),
+		A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 0, -1, 1)
 	]);
-var $author$project$Datatypes$SearchAlgorithm$validNeighbours = F2(
+var $author$project$Utils$Search$validNeighbours = F2(
 	function (start, cells) {
 		var allNeighbours = A2(
 			$elm$core$List$map,
 			function (dir) {
 				return A2(
 					$elm$core$Array$get,
-					$author$project$Datatypes$CubeCoordinates$cubeToIndex(
-						A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, start.position.x + dir.x, start.position.y + dir.y, start.position.z + dir.z)),
+					$author$project$Utils$CubeCoordinates$cubeToIndex(
+						A3($author$project$Utils$CubeCoordinates$CubeCoordinates, start.position.x + dir.x, start.position.y + dir.y, start.position.z + dir.z)),
 					cells);
 			},
-			$author$project$Datatypes$SearchAlgorithm$neighbourDirections);
+			$author$project$Utils$Search$neighbourDirections);
 		return A3(
 			$elm$core$List$foldl,
 			F2(
@@ -6294,11 +6294,11 @@ var $author$project$Datatypes$SearchAlgorithm$validNeighbours = F2(
 			_List_Nil,
 			allNeighbours);
 	});
-var $author$project$Datatypes$SearchAlgorithm$breadthFirst = F5(
+var $author$project$Utils$Search$breadthFirst = F5(
 	function (start, end, visited, toVisit, cells) {
 		breadthFirst:
 		while (true) {
-			var neighbours = A2($author$project$Datatypes$SearchAlgorithm$validNeighbours, start, cells);
+			var neighbours = A2($author$project$Utils$Search$validNeighbours, start, cells);
 			if (A2($elm$core$List$member, end, neighbours)) {
 				return A2($elm$core$Debug$log, 'connected', true);
 			} else {
@@ -6342,9 +6342,9 @@ var $author$project$Datatypes$SearchAlgorithm$breadthFirst = F5(
 			}
 		}
 	});
-var $author$project$Datatypes$SearchAlgorithm$isConnected = F3(
+var $author$project$Utils$Search$isConnected = F3(
 	function (start, end, cells) {
-		return A5($author$project$Datatypes$SearchAlgorithm$breadthFirst, start, end, _List_Nil, _List_Nil, cells);
+		return A5($author$project$Utils$Search$breadthFirst, start, end, _List_Nil, _List_Nil, cells);
 	});
 var $elm$core$Array$setHelp = F4(
 	function (shift, index, value, tree) {
@@ -6388,57 +6388,57 @@ var $elm$core$Array$set = F3(
 			A4($elm$core$Array$setHelp, startShift, index, value, tree),
 			tail));
 	});
-var $author$project$Datatypes$Board$reinforceArmy = F2(
+var $author$project$Board$reinforceArmy = F2(
 	function (cell, board) {
 		return _Utils_update(
 			board,
 			{
 				cells: A3(
 					$elm$core$Array$set,
-					$author$project$Datatypes$CubeCoordinates$cubeToIndex(cell.position),
+					$author$project$Utils$CubeCoordinates$cubeToIndex(cell.position),
 					_Utils_update(
 						cell,
 						{armyStrength: cell.armyStrength + 1}),
 					board.cells)
 			});
 	});
-var $author$project$Datatypes$Board$removeArmy = F2(
+var $author$project$Board$removeArmy = F2(
 	function (cell, board) {
 		return _Utils_update(
 			board,
 			{
 				cells: A3(
 					$elm$core$Array$set,
-					$author$project$Datatypes$CubeCoordinates$cubeToIndex(cell.position),
+					$author$project$Utils$CubeCoordinates$cubeToIndex(cell.position),
 					_Utils_update(
 						cell,
 						{armyStrength: cell.armyStrength - 1}),
 					board.cells)
 			});
 	});
-var $author$project$Datatypes$Player$togglePlayer = function (player) {
+var $author$project$Player$togglePlayer = function (player) {
 	var _v0 = player.id;
 	if (!_v0) {
-		return $author$project$Datatypes$Player$withDefault(
-			A2($elm$core$Array$get, 1, $author$project$Datatypes$Player$initialPlayers));
+		return $author$project$Player$withDefault(
+			A2($elm$core$Array$get, 1, $author$project$Player$initialPlayers));
 	} else {
-		return $author$project$Datatypes$Player$withDefault(
-			A2($elm$core$Array$get, 0, $author$project$Datatypes$Player$initialPlayers));
+		return $author$project$Player$withDefault(
+			A2($elm$core$Array$get, 0, $author$project$Player$initialPlayers));
 	}
 };
 var $elm$core$Basics$neq = _Utils_notEqual;
-var $author$project$Datatypes$Board$validateDefender = F2(
+var $author$project$Board$validateDefender = F2(
 	function (attacker, defender) {
 		var directions = _List_fromArray(
 			[
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 1, -1, 0),
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 1, 0, -1),
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 0, 1, -1),
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, -1, 1, 0),
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, -1, 0, 1),
-				A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, 0, -1, 1)
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 1, -1, 0),
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 1, 0, -1),
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 0, 1, -1),
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, -1, 1, 0),
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, -1, 0, 1),
+				A3($author$project$Utils$CubeCoordinates$CubeCoordinates, 0, -1, 1)
 			]);
-		var diff = A3($author$project$Datatypes$CubeCoordinates$CubeCoordinates, attacker.position.x - defender.position.x, attacker.position.y - defender.position.y, attacker.position.z - defender.position.z);
+		var diff = A3($author$project$Utils$CubeCoordinates$CubeCoordinates, attacker.position.x - defender.position.x, attacker.position.y - defender.position.y, attacker.position.z - defender.position.z);
 		return A2($elm$core$List$member, diff, directions) && (!_Utils_eq(attacker.occupant, defender.occupant));
 	});
 var $author$project$Game$registerClick = F2(
@@ -6446,43 +6446,42 @@ var $author$project$Game$registerClick = F2(
 		var _v0 = game.state;
 		var currentPlayer = _v0.a;
 		var phase = _v0.b;
-		var _v1 = A2($elm$core$Debug$log, 'ClickPhase', phase);
-		switch (_v1.$) {
+		switch (phase.$) {
 			case 'Preparation':
-				var armiesPlaced = _v1.a;
-				return ((A2($author$project$Datatypes$Board$getNumberOfArmies, currentPlayer, game.board) === 14) && (A2(
-					$author$project$Datatypes$Board$getNumberOfArmies,
-					$author$project$Datatypes$Player$togglePlayer(currentPlayer),
+				var armiesPlaced = phase.a;
+				return ((A2($author$project$Board$getNumberOfArmies, currentPlayer, game.board) === 14) && (A2(
+					$author$project$Board$getNumberOfArmies,
+					$author$project$Player$togglePlayer(currentPlayer),
 					game.board) === 15)) ? function (g) {
 					return _Utils_update(
 						g,
 						{
 							state: _Utils_Tuple2(
-								$author$project$Datatypes$Player$togglePlayer(currentPlayer),
+								$author$project$Player$togglePlayer(currentPlayer),
 								$author$project$Game$SelectingAttacker)
 						});
 				}(
 					_Utils_update(
 						game,
 						{
-							board: A2($author$project$Datatypes$Board$reinforceArmy, cell, game.board)
+							board: A2($author$project$Board$reinforceArmy, cell, game.board)
 						})) : ((armiesPlaced === 2) ? _Utils_update(
 					game,
 					{
-						board: A2($author$project$Datatypes$Board$reinforceArmy, cell, game.board),
+						board: A2($author$project$Board$reinforceArmy, cell, game.board),
 						state: _Utils_Tuple2(
-							$author$project$Datatypes$Player$togglePlayer(currentPlayer),
+							$author$project$Player$togglePlayer(currentPlayer),
 							$author$project$Game$Preparation(0))
 					}) : _Utils_update(
 					game,
 					{
-						board: A2($author$project$Datatypes$Board$reinforceArmy, cell, game.board),
+						board: A2($author$project$Board$reinforceArmy, cell, game.board),
 						state: _Utils_Tuple2(
 							currentPlayer,
 							$author$project$Game$Preparation(armiesPlaced + 1))
 					}));
 			case 'Reinforce':
-				var available = _v1.a;
+				var available = phase.a;
 				return function (g) {
 					return _Utils_update(
 						g,
@@ -6495,7 +6494,7 @@ var $author$project$Game$registerClick = F2(
 					_Utils_update(
 						game,
 						{
-							board: A2($author$project$Datatypes$Board$reinforceArmy, cell, game.board)
+							board: A2($author$project$Board$reinforceArmy, cell, game.board)
 						}));
 			case 'SelectingAttacker':
 				return (_Utils_eq(cell.occupant, currentPlayer) && (cell.armyStrength > 1)) ? _Utils_update(
@@ -6506,8 +6505,8 @@ var $author$project$Game$registerClick = F2(
 							$author$project$Game$SelectingDefender(cell))
 					}) : game;
 			case 'SelectingDefender':
-				var attacker = _v1.a;
-				return A2($author$project$Datatypes$Board$validateDefender, attacker, cell) ? _Utils_update(
+				var attacker = phase.a;
+				return A2($author$project$Board$validateDefender, attacker, cell) ? _Utils_update(
 					game,
 					{
 						state: _Utils_Tuple2(
@@ -6527,14 +6526,14 @@ var $author$project$Game$registerClick = F2(
 							$author$project$Game$MoveTroops(cell))
 					}) : game;
 			case 'MoveTroops':
-				var start = _v1.a;
-				return A3($author$project$Datatypes$SearchAlgorithm$isConnected, start, cell, game.board.cells) ? _Utils_update(
+				var start = phase.a;
+				return A3($author$project$Utils$Search$isConnected, start, cell, game.board.cells) ? _Utils_update(
 					game,
 					{
 						board: A2(
-							$author$project$Datatypes$Board$removeArmy,
+							$author$project$Board$removeArmy,
 							start,
-							A2($author$project$Datatypes$Board$reinforceArmy, cell, game.board)),
+							A2($author$project$Board$reinforceArmy, cell, game.board)),
 						state: _Utils_Tuple2(currentPlayer, $author$project$Game$TakeTroops)
 					}) : game;
 			default:
@@ -6544,7 +6543,7 @@ var $author$project$Game$registerClick = F2(
 var $author$project$Game$GameOver = function (a) {
 	return {$: 'GameOver', a: a};
 };
-var $author$project$Datatypes$Board$getNumberOfCountries = F2(
+var $author$project$Board$getNumberOfCountries = F2(
 	function (player, board) {
 		return A3(
 			$elm$core$Array$foldl,
@@ -6555,14 +6554,14 @@ var $author$project$Datatypes$Board$getNumberOfCountries = F2(
 			0,
 			board.cells);
 	});
-var $author$project$Datatypes$Board$occupy = F3(
+var $author$project$Board$occupy = F3(
 	function (cell, player, board) {
 		return _Utils_update(
 			board,
 			{
 				cells: A3(
 					$elm$core$Array$set,
-					$author$project$Datatypes$CubeCoordinates$cubeToIndex(cell.position),
+					$author$project$Utils$CubeCoordinates$cubeToIndex(cell.position),
 					_Utils_update(
 						cell,
 						{armyStrength: 1, occupant: player}),
@@ -6574,15 +6573,15 @@ var $author$project$Game$registerRolls = F3(
 		var _v0 = game.state;
 		var currentPlayer = _v0.a;
 		var phase = _v0.b;
-		var player = $author$project$Datatypes$Player$togglePlayer(currentPlayer);
+		var player = $author$project$Player$togglePlayer(currentPlayer);
 		var checkForGameOver = function (updatedGame) {
-			return (!A2($author$project$Datatypes$Board$getNumberOfCountries, currentPlayer, updatedGame.board)) ? _Utils_update(
+			return (!A2($author$project$Board$getNumberOfCountries, currentPlayer, updatedGame.board)) ? _Utils_update(
 				updatedGame,
 				{
 					state: _Utils_Tuple2(
 						player,
 						$author$project$Game$GameOver(player))
-				}) : ((!A2($author$project$Datatypes$Board$getNumberOfCountries, player, updatedGame.board)) ? _Utils_update(
+				}) : ((!A2($author$project$Board$getNumberOfCountries, player, updatedGame.board)) ? _Utils_update(
 				updatedGame,
 				{
 					state: _Utils_Tuple2(
@@ -6596,9 +6595,9 @@ var $author$project$Game$registerRolls = F3(
 					game,
 					{
 						board: A2(
-							$author$project$Datatypes$Board$removeArmy,
+							$author$project$Board$removeArmy,
 							attacker,
-							A3($author$project$Datatypes$Board$occupy, defender, player, game.board)),
+							A3($author$project$Board$occupy, defender, player, game.board)),
 						state: _Utils_Tuple2(player, $author$project$Game$SelectingAttacker)
 					}) : _Utils_update(
 					game,
@@ -6623,7 +6622,7 @@ var $author$project$Game$registerRolls = F3(
 						_Utils_update(
 							game,
 							{
-								board: A2($author$project$Datatypes$Board$removeArmy, defender, game.board),
+								board: A2($author$project$Board$removeArmy, defender, game.board),
 								state: _Utils_Tuple2(
 									currentPlayer,
 									A3(
@@ -6640,7 +6639,7 @@ var $author$project$Game$registerRolls = F3(
 						_Utils_update(
 							game,
 							{
-								board: A2($author$project$Datatypes$Board$removeArmy, attacker, game.board),
+								board: A2($author$project$Board$removeArmy, attacker, game.board),
 								state: _Utils_Tuple2(
 									currentPlayer,
 									A3(
@@ -6670,32 +6669,32 @@ var $author$project$Main$update = F2(
 			case 'GeneratedRandomSeed':
 				var seed = msg.a;
 				return _Utils_Tuple2(
-					$author$project$Datatypes$Model$Playing(
+					$author$project$Model$Playing(
 						$author$project$Game$initialize(seed)),
 					$elm$core$Platform$Cmd$none);
 			case 'Play':
 				return _Utils_Tuple2(
-					$author$project$Datatypes$Model$GenerateSeed,
+					$author$project$Model$GenerateSeed,
 					A2(
 						$elm$random$Random$generate,
-						$author$project$Datatypes$Model$GeneratedRandomSeed,
+						$author$project$Model$GeneratedRandomSeed,
 						A2($author$project$Main$intGenerator, $elm$random$Random$minInt, $elm$random$Random$maxInt)));
 			case 'Restart':
-				return _Utils_Tuple2($author$project$Datatypes$Model$Tutorial, $elm$core$Platform$Cmd$none);
+				return _Utils_Tuple2($author$project$Model$Tutorial, $elm$core$Platform$Cmd$none);
 			default:
 				if (model.$ === 'Playing') {
 					var game = model.a;
 					var _v2 = game.state;
 					var currentPlayer = _v2.a;
 					var phase = _v2.b;
-					var nextPlayer = $author$project$Datatypes$Player$togglePlayer(currentPlayer);
+					var nextPlayer = $author$project$Player$togglePlayer(currentPlayer);
 					switch (msg.$) {
 						case 'GeneratedRandomSeed':
 							return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 						case 'Click':
 							var cell = msg.a;
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									A2($author$project$Game$registerClick, cell, game)),
 								$elm$core$Platform$Cmd$none);
 						case 'SetAttackingArmies':
@@ -6703,7 +6702,7 @@ var $author$project$Main$update = F2(
 							var defender = msg.b;
 							var strength = msg.c;
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									_Utils_update(
 										game,
 										{
@@ -6713,7 +6712,7 @@ var $author$project$Main$update = F2(
 										})),
 								_Utils_eq(defender.occupant, nextPlayer) ? $elm$core$Platform$Cmd$none : A2(
 									$elm$random$Random$generate,
-									$author$project$Datatypes$Model$RolledDice,
+									$author$project$Model$RolledDice,
 									A2(
 										$elm$random$Random$pair,
 										A2(
@@ -6726,7 +6725,7 @@ var $author$project$Main$update = F2(
 											A2($author$project$Main$intGenerator, 1, 6)))));
 						case 'CancelAttack':
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									_Utils_update(
 										game,
 										{
@@ -6740,7 +6739,7 @@ var $author$project$Main$update = F2(
 								model,
 								A2(
 									$elm$random$Random$generate,
-									$author$project$Datatypes$Model$RolledDice,
+									$author$project$Model$RolledDice,
 									A2(
 										$elm$random$Random$pair,
 										A2(
@@ -6768,7 +6767,7 @@ var $author$project$Main$update = F2(
 									}
 								});
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									A3(
 										$author$project$Game$registerRolls,
 										A2($elm$core$List$sortWith, descending, attackers),
@@ -6777,7 +6776,7 @@ var $author$project$Main$update = F2(
 								$elm$core$Platform$Cmd$none);
 						case 'EndAttack':
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									_Utils_update(
 										game,
 										{
@@ -6786,7 +6785,7 @@ var $author$project$Main$update = F2(
 								$elm$core$Platform$Cmd$none);
 						case 'CancelMovement':
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									_Utils_update(
 										game,
 										{
@@ -6795,14 +6794,14 @@ var $author$project$Main$update = F2(
 								$elm$core$Platform$Cmd$none);
 						case 'EndTurn':
 							return _Utils_Tuple2(
-								$author$project$Datatypes$Model$Playing(
+								$author$project$Model$Playing(
 									_Utils_update(
 										game,
 										{
 											state: _Utils_Tuple2(
 												nextPlayer,
 												$author$project$Game$Reinforce(
-													A2($author$project$Datatypes$Board$getReinforcements, nextPlayer, game.board)))
+													A2($author$project$Board$getReinforcements, nextPlayer, game.board)))
 										})),
 								$elm$core$Platform$Cmd$none);
 						default:
@@ -6814,7 +6813,7 @@ var $author$project$Main$update = F2(
 		}
 	});
 var $elm$html$Html$aside = _VirtualDom_node('aside');
-var $author$project$Datatypes$Model$Click = function (a) {
+var $author$project$Model$Click = function (a) {
 	return {$: 'Click', a: a};
 };
 var $elm$html$Html$div = _VirtualDom_node('div');
@@ -6828,7 +6827,7 @@ var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
 var $elm$core$Basics$cos = _Basics_cos;
 var $elm$core$Basics$pi = _Basics_pi;
 var $elm$core$Basics$sin = _Basics_sin;
-var $author$project$Datatypes$Hexagon$calculateCorners = function (hexagon) {
+var $author$project$Hexagon$calculateCorners = function (hexagon) {
 	var radius = hexagon.radius;
 	var _v0 = _Utils_Tuple2(hexagon.radius, hexagon.radius);
 	var x = _v0.a;
@@ -6848,11 +6847,11 @@ var $author$project$Datatypes$Hexagon$calculateCorners = function (hexagon) {
 			$elm$core$Basics$toFloat,
 			A2($elm$core$List$range, 0, 5)));
 };
-var $author$project$Datatypes$Hexagon$Hexagon = F4(
+var $author$project$Hexagon$Hexagon = F4(
 	function (center, radius, width, height) {
 		return {center: center, height: height, radius: radius, width: width};
 	});
-var $author$project$Datatypes$Hexagon$createHexagon = F3(
+var $author$project$Hexagon$createHexagon = F3(
 	function (cubeX, cubeZ, size) {
 		var width = $elm$core$Basics$sqrt(3) * size;
 		var row = cubeX + (((cubeZ - A2($elm$core$Basics$modBy, 2, cubeZ)) / 2) | 0);
@@ -6862,7 +6861,7 @@ var $author$project$Datatypes$Hexagon$createHexagon = F3(
 		var x = (width * row) + offsetX;
 		var y = (size * 1.5) * column;
 		return A4(
-			$author$project$Datatypes$Hexagon$Hexagon,
+			$author$project$Hexagon$Hexagon,
 			_Utils_Tuple2(x, y),
 			size,
 			width,
@@ -6913,10 +6912,10 @@ var $elm$svg$Svg$Attributes$xlinkHref = function (value) {
 		_VirtualDom_noJavaScriptUri(value));
 };
 var $elm$svg$Svg$Attributes$y = _VirtualDom_attribute('y');
-var $author$project$Datatypes$Hexagon$toSVG = F3(
+var $author$project$Hexagon$toSVG = F3(
 	function (clickAction, isClickable, cell) {
 		var size = 70;
-		var hexagon = A3($author$project$Datatypes$Hexagon$createHexagon, cell.position.x, cell.position.z, size);
+		var hexagon = A3($author$project$Hexagon$createHexagon, cell.position.x, cell.position.z, size);
 		var viewbox = $elm$core$String$fromFloat(70 - (hexagon.width / 2)) + (' 0 ' + ($elm$core$String$fromFloat(hexagon.width) + (' ' + $elm$core$String$fromFloat(hexagon.height))));
 		var fillColor = cell.occupant.color;
 		var clickAttrs = isClickable(cell) ? _List_fromArray(
@@ -6960,7 +6959,7 @@ var $author$project$Datatypes$Hexagon$toSVG = F3(
 										var y = _v0.b;
 										return $elm$core$String$fromFloat(x) + (',' + $elm$core$String$fromFloat(y));
 									},
-									$author$project$Datatypes$Hexagon$calculateCorners(hexagon))))
+									$author$project$Hexagon$calculateCorners(hexagon))))
 						]),
 					_List_Nil),
 					A2(
@@ -7053,7 +7052,7 @@ var $author$project$Main$boardView = function (game) {
 						function (cell, acc) {
 							return A2(
 								$elm$core$List$cons,
-								A3($author$project$Datatypes$Hexagon$toSVG, $author$project$Datatypes$Model$Click, isClickable, cell),
+								A3($author$project$Hexagon$toSVG, $author$project$Model$Click, isClickable, cell),
 								acc);
 						}),
 					_List_Nil,
@@ -7100,16 +7099,16 @@ var $author$project$Main$sideBar = function (player) {
 			A2($elm$html$Html$Attributes$style, 'justifyContent', 'center')
 		]);
 };
-var $author$project$Datatypes$Model$CancelAttack = {$: 'CancelAttack'};
-var $author$project$Datatypes$Model$CancelMovement = {$: 'CancelMovement'};
-var $author$project$Datatypes$Model$EndAttack = {$: 'EndAttack'};
-var $author$project$Datatypes$Model$EndTurn = {$: 'EndTurn'};
-var $author$project$Datatypes$Model$Restart = {$: 'Restart'};
-var $author$project$Datatypes$Model$RollAttack = F2(
+var $author$project$Model$CancelAttack = {$: 'CancelAttack'};
+var $author$project$Model$CancelMovement = {$: 'CancelMovement'};
+var $author$project$Model$EndAttack = {$: 'EndAttack'};
+var $author$project$Model$EndTurn = {$: 'EndTurn'};
+var $author$project$Model$Restart = {$: 'Restart'};
+var $author$project$Model$RollAttack = F2(
 	function (a, b) {
 		return {$: 'RollAttack', a: a, b: b};
 	});
-var $author$project$Datatypes$Model$SetAttackingArmies = F3(
+var $author$project$Model$SetAttackingArmies = F3(
 	function (a, b, c) {
 		return {$: 'SetAttackingArmies', a: a, b: b, c: c};
 	});
@@ -7229,14 +7228,14 @@ var $author$project$Main$stateView = function (phase) {
 					return _List_fromArray(
 						[
 							$elm$html$Html$text('ANGRIFF BEENDEN'),
-							A2($author$project$Main$imageButton, $author$project$Datatypes$Model$EndAttack, './assets/EndAttack.png')
+							A2($author$project$Main$imageButton, $author$project$Model$EndAttack, './assets/EndAttack.png')
 						]);
 				case 'SelectingDefender':
 					var attacker = phase.a;
 					return _List_fromArray(
 						[
 							countryFlag(attacker.country),
-							A2($author$project$Main$imageButton, $author$project$Datatypes$Model$CancelAttack, './assets/cancel.png')
+							A2($author$project$Main$imageButton, $author$project$Model$CancelAttack, './assets/cancel.png')
 						]);
 				case 'Attack':
 					var attacker = phase.a;
@@ -7267,7 +7266,7 @@ var $author$project$Main$stateView = function (phase) {
 							function (i) {
 								return A2(
 									$author$project$Main$imageButton,
-									A3($author$project$Datatypes$Model$SetAttackingArmies, attacker, defender, i),
+									A3($author$project$Model$SetAttackingArmies, attacker, defender, i),
 									'./assets/infantry_' + ($elm$core$String$fromInt(i) + '.png'));
 							},
 							A2(
@@ -7304,7 +7303,7 @@ var $author$project$Main$stateView = function (phase) {
 							function (i) {
 								return A2(
 									$author$project$Main$imageButton,
-									A2($author$project$Datatypes$Model$RollAttack, strength, i),
+									A2($author$project$Model$RollAttack, strength, i),
 									'./assets/infantry_' + ($elm$core$String$fromInt(i) + '.png'));
 							},
 							A2(
@@ -7315,14 +7314,14 @@ var $author$project$Main$stateView = function (phase) {
 					return _List_fromArray(
 						[
 							$elm$html$Html$text('ZUG BEENDEN'),
-							A2($author$project$Main$imageButton, $author$project$Datatypes$Model$EndTurn, './assets/EndTurn.png')
+							A2($author$project$Main$imageButton, $author$project$Model$EndTurn, './assets/EndTurn.png')
 						]);
 				case 'MoveTroops':
 					var start = phase.a;
 					return _List_fromArray(
 						[
 							countryFlag(start.country),
-							A2($author$project$Main$imageButton, $author$project$Datatypes$Model$CancelMovement, './assets/cancel.png')
+							A2($author$project$Main$imageButton, $author$project$Model$CancelMovement, './assets/cancel.png')
 						]);
 				default:
 					var winningPlayer = phase.a;
@@ -7334,7 +7333,7 @@ var $author$project$Main$stateView = function (phase) {
 							$elm$html$Html$button,
 							_List_fromArray(
 								[
-									$elm$html$Html$Events$onClick($author$project$Datatypes$Model$Restart),
+									$elm$html$Html$Events$onClick($author$project$Model$Restart),
 									A2($elm$html$Html$Attributes$style, 'width', '162px'),
 									A2($elm$html$Html$Attributes$style, 'height', '100px'),
 									A2($elm$html$Html$Attributes$style, 'backgroundColor', 'white'),
@@ -7349,7 +7348,7 @@ var $author$project$Main$stateView = function (phase) {
 			}
 		}());
 };
-var $author$project$Datatypes$Model$Play = {$: 'Play'};
+var $author$project$Model$Play = {$: 'Play'};
 var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$Attributes$href = function (url) {
 	return A2(
@@ -7593,7 +7592,7 @@ var $author$project$Main$tutorialView = A2(
 					$elm$html$Html$button,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick($author$project$Datatypes$Model$Play)
+							$elm$html$Html$Events$onClick($author$project$Model$Play)
 						]),
 					_List_fromArray(
 						[
@@ -7634,7 +7633,7 @@ var $author$project$Main$view = function (model) {
 								A2(
 								$elm$html$Html$nav,
 								$author$project$Main$sideBar(
-									$author$project$Datatypes$Player$getPlayer(-1)),
+									$author$project$Player$getPlayer(-1)),
 								_List_fromArray(
 									[
 										A2($elm$html$Html$div, _List_Nil, _List_Nil),
@@ -7659,7 +7658,7 @@ var $author$project$Main$view = function (model) {
 								A2(
 								$elm$html$Html$aside,
 								$author$project$Main$sideBar(
-									$author$project$Datatypes$Player$getPlayer(-1)),
+									$author$project$Player$getPlayer(-1)),
 								_List_Nil)
 							]))
 					]));
